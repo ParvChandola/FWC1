@@ -10,7 +10,7 @@ for i in range(3):
     B.append(float(input("Enter the x, y and z coordinate for B : ")))
 B = np.array(B)
 
-i# Orthogonality calculation
+# Orthogonality calculation
 
 orth = A.T@B
 
