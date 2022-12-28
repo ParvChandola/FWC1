@@ -1,0 +1,66 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{gensymb}
+
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\begin{document}
+\begin{center}
+\textbf\large{CHAPTER-10 \\ VECTOR ALGEBRA}
+
+\end{center}
+\section*{Excercise 10.4}
+
+Q5.Find $\lambda \text{ and } \mu \text{ if } (2\hat{i}+6\hat{j}+27\hat{k}) \times (\hat{i}+\lambda \hat{j}+\mu \hat{k})=\vec{0}$
+
+\solution
+\begin{align}
+	\text{Let } \vec{A} = \myvec{2\\6\\27} \text{ and } \vec{B} = \myvec{1\\ \lambda \\ \mu}\\
+\end{align}
+The cross product or vector product of $\vec{A},\vec{B}$ is defined as
+\begin{align}
+	\vec{A} \times \vec{B} = \myvec{\mydet{\vec{A}_{23}&\vec{B}_{23}\\\vec{A}_{31}&\vec{B}_{31}\\\vec{A}_{12}&\vec{B}_{12}}}
+\end{align}
+Now we know
+\begin{align}
+	\vec{A} \times \vec{B} = \vec{0}
+\end{align}
+Hence
+\begin{align}
+	\mydet{\vec{A}_{23}&\vec{B}_{23}}=0,
+	\mydet{\vec{A}_{31}&\vec{B}_{31}}=0 \text{ and }
+	\mydet{\vec{A}_{12}&\vec{B}_{12}}=0
+\end{align}
+Substituting the values
+\begin{align}
+	\mydet{\vec{A}_{23}&\vec{B}_{23}}&=0\\
+	\mydet{6&\lambda\\27&\mu}&=0\\
+	6\mu-27\lambda&=0
+\end{align}
+
+\begin{align}
+	\mydet{\vec{A}_{31}&\vec{B}_{31}}&=0\\
+	\mydet{27&\mu\\2&1}&=0\\
+	27-2\mu&=0\\
+	\mu&=13.5
+\end{align}
+
+\begin{align}
+	\mydet{\vec{A}_{12}&\vec{B}_{12}}&=0\\
+	\mydet{2&1\\6&\lambda}&=0\\
+	2\lambda-6&=0\\
+	\lambda&=3
+\end{align}
+
+Hence, the values are $\lambda = 3 \text{ and } \mu = 13.5$
+
+\end{document}
+
