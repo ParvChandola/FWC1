@@ -1,0 +1,58 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{gensymb}
+
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\begin{document}
+\begin{center}
+\textbf\large{CHAPTER-11 \\ CIRCLES}
+
+\end{center}
+\section*{Excercise 11.1}
+
+Q.Find the equation of the circle with centre $(0,2)$ and radius 2.
+
+\solution
+Given
+\begin{align}
+	\vec{c} = \myvec{0\\2} \text{ and } r = 2
+\end{align}
+We know the equation of the circle is given as
+\begin{align}
+	\norm{\vec{x}}^{2} + 2\vec{u}^{\top}\vec{x} + f = 0
+\end{align}
+where,
+\begin{align}
+	\vec{u} = -\vec{c} \text{ and } f = \norm{\vec{u}}^{2} - r^{2}
+\end{align}
+So, here
+\begin{align}
+	\vec{u} &= \myvec{0\\-2}\\
+	\norm{\vec{u}} &= \sqrt{0^2 + 2^2} = 2\\
+	f &= \norm{\vec{u}}^2 - r^2\\
+	  &= 2^2 - 2^2 = 0
+\end{align}
+Now substituting the values the equation of circle can be given as
+\begin{align}
+	\norm{\vec{x}}^2 + 2\myvec{0 & -2}\vec{x} + 0 &= 0\\
+	        		       x^2 + y^2 - 4y &= 0
+\end{align}
+As shown in Figure \ref{fig:Fig1}	
+\begin{figure}[!h]
+	\begin{center} 
+	    \includegraphics[width=\columnwidth]{figs/circ1}
+	\end{center}
+\caption{}
+\label{fig:Fig1}
+\end{figure}
+
+\end{document}
