@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[latin1]{inputenc}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{lscape}
+\usepackage{float}
+
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\def\inputGnumericTable{}
+
+\begin{document}
+\begin{center}
+\textbf\large{TANGENTS AND NORMALS}
+
+\end{center}
+\section*{Excercise 10.2}
+Q2.In fig \ref{fig:Fig1}, if TP and TQ are two tangents to a circle with centre O so that $\angle{POQ} = 110\degree$ then $\angle{PTQ}$ is equal to.
+
+\solution
+Let the output angle be $\phi$.
+The input parameters are given as
+\input{./table/table1.tex}
+Any point $\vec{X}$ on the circle is given as
+\begin{align}
+	\vec{X} = \vec{O}+r\myvec{\cos\theta\\\sin\theta}
+\end{align}
+So points $\vec{P} \text{ and } \vec{Q}$ can be calculated as
+\begin{align}
+	\vec{P} &= \vec{O}+\myvec{\cos\theta\\\sin\theta} = \myvec{\cos\theta\\\sin\theta}\\
+	\vec{Q} &= \vec{e}_1
+\end{align}
+For tangent $TP$
+\begin{align}
+	\vec{n}_1 &= \vec{P}-\vec{O}\\
+	&= \myvec{\cos\theta\\\sin\theta} =  \myvec{1\\\tan\theta}\\
+	\vec{m}_1 &= \myvec{1\\-\cot\theta}
+\end{align}
+For tangent $TQ$
+\begin{align}
+	\vec{n}_2 &= \vec{e}_1-\vec{O}\\
+	&= \myvec{1\\0}\\
+	\vec{m}_2 &= \myvec{0\\1}=\vec{e}_2
+\end{align}
+The equation of $TP$ is given as
+\begin{align}
+	\vec{n}_1^\top\brak{\vec{x}-\vec{P}} &= 0\\
+	\vec{n}_1^\top\brak{\vec{x}-\myvec{\cos\theta\\\sin\theta}} &= 0\\
+	\label{eq:eq1}
+	\myvec{\cos\theta & \sin\theta}\vec{x} &= 1
+\end{align}
+The equation of $TQ$ is given as
+\begin{align}
+	\vec{n}_2^\top\brak{\vec{x}-\vec{e}_1} &= 0\\
+	\vec{n}_2^\top\brak{\vec{x}-\myvec{1\\0}} &= 0\\
+	\label{eq:eq2}
+	\myvec{1&0}\vec{x} &= 1
+\end{align}
+The tangent point can be calculated by solving \eqref{eq:eq1} and \eqref{eq:eq2}
+\begin{align}
+	\myvec{\cos\theta&\sin\theta\\1&0}\myvec{x\\y} &= \myvec{1\\1}\\
+	\implies \myvec{x\\y} &= \myvec{1\\1.428}
+\end{align}
+The angle between two lines with slope $\vec{m}_1 \text{ and } \vec{m}_2$ s given as
+\begin{align}
+	\cos\phi &= \frac{\vec{m}_1^\top\vec{m}_2}{\norm{\vec{m}_1}\norm{\vec{m}_2}}\\
+	&= \frac{\myvec{1&-\cot\theta}\myvec{0\\1}}{\brak{\csc\theta}\brak{1}}\\
+	&= -\cos\theta\\
+	\implies \cos\phi &= -\cos\theta
+\end{align}
+Hence,
+\begin{align}
+	\phi &= \cos^{-1}\brak{\cos{\brak{180\degree-\theta}}}\\
+	     &= 180\degree-\theta = 70\degree
+\end{align}
+Hence, $\angle{PTQ} = 70\degree$. See Fig \ref{fig:Fig1}
+\begin{figure}[!h]
+	\begin{center} 
+	    \includegraphics[width=\columnwidth]{figs/tangent2}
+	\end{center}
+\caption{}
+\label{fig:Fig1}
+\end{figure}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
