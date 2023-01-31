@@ -53,8 +53,8 @@ x_PC = line_gen(P,O)
 plt.plot(x_circ[0,:],x_circ[1,:],label='$Circle$')
 plt.plot(x_TP[0,:],x_TP[1,:],label='$TP$')
 plt.plot(x_TQ[0,:],x_TQ[1,:],label='$TQ$')
-plt.plot(x_QC[0,:],x_QC[1,:],label='$QC$')
-plt.plot(x_PC[0,:],x_PC[1,:],label='$PC$')
+plt.plot(x_QC[0,:],x_QC[1,:],label='$QO$')
+plt.plot(x_PC[0,:],x_PC[1,:],label='$PO$')
 
 #Labeling the coordinates
 tri_coords = np.vstack((T,P,Q,O)).T
