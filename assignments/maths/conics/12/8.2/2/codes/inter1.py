@@ -73,7 +73,7 @@ plt.fill_between(x_circ1[0],x_circ1[1],where= (0 <= x_circ1[0])&(x_circ1[0] <= 0
 tri_coords = np.vstack((c1,c2)).T
 plt.scatter(tri_coords[0],tri_coords[1])
 
-vert_labels = ['c_1','c_2']
+vert_labels = ['$c_1$','$c_2$']
 for i, txt in enumerate(vert_labels):
     label = "{}({:.0f},{:.0f})".format(txt, tri_coords[0,i],tri_coords[1,i]) #Form label as A(x,y)
     plt.annotate(label, # this is the text
