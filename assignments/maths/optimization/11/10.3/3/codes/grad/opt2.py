@@ -38,6 +38,6 @@ plt.title('Minimum Value of Function')
 plt.legend(loc = 'best')
 #subprocess.run(shlex.split("termux-open ../figs/1.1.pdf"))
 #if using termux
-plt.savefig('/sdcard/Download/latexfiles/optimization/figs/opt2.png')
+plt.savefig('/sdcard/Download/latexfiles/optimization/figs/grad/opt2.png')
 #else
 plt.show()
