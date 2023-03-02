@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[latin1]{inputenc}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{lscape}
+\usepackage{float}
+\usepackage{amssymb}
+
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\def\inputGnumericTable{}
+
+\begin{document}
+\begin{center}
+\textbf\large{OPTIMIZATION}
+
+\end{center}
+\section*{JEE Maths-65/5/3}
+
+Q26.1 Find the vector equation of the line passing through $\brak{2,1,-1}$ and parallel to the line $\vec{r} = \brak{\hat{i}+\hat{j}}+\lambda\brak{2\hat{i}-\hat{j}+\hat{k}}$. Also, find the distance between these two lines.
+
+\solution
+The given equations can be written as
+\begin{align}
+	\label{eq:eq1}
+	\vec{A} &= \vec{x}_1+\lambda_1\vec{m}_1\\
+	\label{eq:eq2}
+	\vec{B} &= \vec{x}_2 + \lambda_2\vec{m}_2 
+\end{align}
+where
+\begin{align}
+	\vec{x}_1 = \myvec{1\\1\\0}, \vec{x}_2 = \myvec{2\\1\\-1},
+\end{align}
+Also since \eqref{eq:eq1} is parallel to \eqref{eq:eq2} so
+\begin{align}
+	\vec{m}_1 = \vec{m}_2 = \myvec{2\\-1\\1}
+\end{align}
+Now to make the problem a least square problem. We assume a point on \eqref{eq:eq2} given as
+\begin{align}
+	\vec{P} = \myvec{2\\1\\-1}
+\end{align}
+and the line to find minimum distance is given as
+\begin{align}
+	\vec{x} = \vec{A} + \lambda\vec{m}
+\end{align}
+Now to minimize the distance between this point and the line the optimization problem is formulated as follows
+\begin{align}
+	\label{eq:eq3}
+	\min_{\vec{x}}\norm{\vec{x}-\vec{P}}^2
+\end{align}
+Substituting the values in \eqref{eq:eq3} we get
+\begin{align}
+	\eqref{eq:eq3}\implies &\min_{\lambda}\norm{\vec{A}+\lambda\vec{m}-\vec{P}}^2\\
+	\implies f\brak{\lambda} &= \norm{\vec{A}+\lambda\vec{m}-\vec{P}}^2\\
+	&= \brak{\vec{A}+\lambda\vec{m}-\vec{P}}^\top\brak{\vec{A}+\lambda\vec{m}-\vec{P}}\\
+	&= \norm{\vec{m}}^2\lambda^2+\brak{2\vec{A}^T\vec{m}-\vec{P}^\top\vec{m}}\lambda+\brak{\norm{\vec{A}}^2+\norm{\vec{P}}^2-2\vec{A}^\top\vec{P}}\\
+	\label{eq:eq4}
+	&= 6\lambda^2-2\lambda+5
+\end{align}
+Since, the coefficient of $\lambda^2>0$, equation \eqref{eq:eq4} is a convex function. Solving in cvxpy we get
+\begin{align}
+	\lambda_{min} &= 0.166\\
+	\min_{x}\norm{\vec{x}-\vec{P}} &= 1.354
+\end{align}
+This is the same result we got by convex optimization. While using least squares we cannot take $\vec{B}-\vec{A}$ and assume $\lambda$ as a variable vector because we then have the equation as
+\begin{align}
+	&\min_{\lambda}\norm{\vec{B}-\vec{A}}^2\\
+	\implies &\min_{\lambda}\norm{\vec{M}\lambda+\vec{k}}^2
+\end{align}
+where
+\begin{align}
+	\vec{M} &= \myvec{\vec{m}_1 & \vec{m}_2} \text{ and } \vec{k} = \vec{x}_2 - \vec{x}_1\\
+	\text{and } \lambda &= \brak{\vec{M}^\top\vec{M}}^{-1}\vec{M}^\top\vec{k}
+\end{align}
+Now
+\begin{align}
+	\vec{M}^\top\vec{M} &= \myvec{2&-1&1\\2&-1&1}\myvec{2&2\\-1&-1\\1&1} = \myvec{6&6\\6&6} 
+\end{align}
+Now since the lines are parallel to each other $\vec{M}^\top\vec{M}$ is a singular matrix and we cannot calculate its inverse and there will be infinite number of points on both lines that satisfy the minimum distance so we cannot proceed through this approach. This is appicable if the lines are skew.
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
